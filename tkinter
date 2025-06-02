@@ -1,0 +1,40 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def login():
+    name = entry_name.get().strip()
+    username = entry_username.get().strip()
+    password = entry_password.get().strip()
+
+    if name and username and password:
+        messagebox.showinfo("Login Success", f"Welcome, {name}! You have successfully logged in.")
+    else:
+        messagebox.showerror("Login Failed", "Please fill in all fields.")
+
+window = tk.Tk()
+window.title("Login System")
+window.geometry("350x300")
+window.config(bg="white")
+
+label_title = tk.Label(window, text="Login", font=("Arial", 18, "bold"), bg="white")
+label_title.pack(pady=15)
+
+label_name = tk.Label(window, text="Your Name:", font=("Arial", 12), bg="white")
+label_name.pack(anchor="w", padx=20)
+entry_name = tk.Entry(window, font=("Arial", 12), bd=2, relief="groove", bg="white", fg="black")
+entry_name.pack(fill="x", padx=20, pady=5)
+
+label_username = tk.Label(window, text="Username:", font=("Arial", 12), bg="white")
+label_username.pack(anchor="w", padx=20)
+entry_username = tk.Entry(window, font=("Arial", 12), bd=2, relief="groove", bg="white", fg="black")
+entry_username.pack(fill="x", padx=20, pady=5)
+
+label_password = tk.Label(window, text="Password:", font=("Arial", 12), bg="white")
+label_password.pack(anchor="w", padx=20)
+entry_password = tk.Entry(window, show="*", font=("Arial", 12), bd=2, relief="groove", bg="white", fg="black")
+entry_password.pack(fill="x", padx=20, pady=5)
+
+btn_login = tk.Button(window, text="Login", font=("Arial", 12, "bold"), bg="#4CAF50", fg="white", command=login)
+btn_login.pack(pady=20, ipadx=10, ipady=5)
+
+window.mainloop()
